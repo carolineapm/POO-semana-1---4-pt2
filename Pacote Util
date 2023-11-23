@@ -1,0 +1,52 @@
+package Util; //PACOTE
+import java.util.Scanner;
+
+public class InterfaceUsuario { //CLASSE INTERFACEUSUARIO
+    private Scanner scanner; //MÉTODO SCANNER // ENTRADA DE DADOS
+
+    public InterfaceUsuario() {
+        this.scanner = new Scanner(System.in);
+    }
+
+    public double pedirValorImovel() {
+    	double valorImovel;
+    	do { //ESTRUTURAS DE REPETIÇÃO
+    		System.out.println("Digite o valor do imóvel: ");
+            valorImovel = scanner.nextDouble();
+            
+            if (valorImovel <= 0) { //ESTRUTURAS CONDICIONAIS
+            	System.out.println("Valor inválido. ");
+            }
+    	} while (valorImovel <= 0);
+    	return valorImovel;
+      }
+
+    public int pedirPrazoFinanciamento() {//PRAZO DO FINANCIAMENTO EM ANOS
+        int prazoFinanciamento;
+        
+        do { //ESTRUTURAS DE REPETIÇÃO
+        	System.out.println("Digite o prazo do financiamento em anos: ");
+            prazoFinanciamento = scanner.nextInt();
+            
+            if (prazoFinanciamento == 0 || prazoFinanciamento > 35) {//ESTRUTURAS CONDICIONAIS
+            	System.out.println("Prazo de financimanto inválido. ");
+            }
+        } while (prazoFinanciamento > 35);//ESTRUTURAS DE REPETIÇÃO
+        return prazoFinanciamento;
+    }
+
+    public double pedirTaxaJuros() {
+    	double taxaJuros;
+    	     
+            System.out.println("Digite a taxa de juros anual: ");
+                taxaJuros = scanner.nextDouble();
+            	if (taxaJuros == 0 || taxaJuros > 1000) {
+            		System.out.println("Taxa de juros inválida.");
+            	}         
+               return taxaJuros;
+           }
+
+    public void fecharScanner() {
+        scanner.close();
+    }
+}
